@@ -1,15 +1,14 @@
 pipeline {
-	agent any
-	stages {
-		stage('Uploading to AWS.') {
-			steps {
-				dir('./'){
-                    		pwd();
-                    		withAWS(region: 'us-west-2', credentials: 'aws-static') {
-                        	s3Upload(file:'index.html', bucket:'sagar-udacity-project-3', path:'')
-                    			}
-                		}
-			}
-		}
-	}
+    agent any
+    stages {
+        stage('hello AWS') {
+            steps {
+                withAWS(credentials: 'aws-static', region: 'us-west-2') {
+                    sh 'echo "hello KB">hello.txt'
+                    s3Upload bucket: 'sagar-udacity-project-3', file: 'index.html'
+                }
+            }
+        }
+    }
 }
+
