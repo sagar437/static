@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('Uploading to AWS.') {
 			steps {
-                    		withAWS(region:'us-west-2', credentials:'aws-static') {
+                    		withAWS(profile:'myProfile') {
                         	s3Upload(file:'index.html', bucket:'sagar-udacity-project-3', path:'index.html')
                     			}
 			}
