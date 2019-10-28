@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 	stages {
-		stage('Upload to AWS.') {
+		stage('Uploading to AWS.') {
 			steps {
 				dir('./'){
                     		pwd();
