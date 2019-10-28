@@ -6,7 +6,7 @@ pipeline {
 				dir('./'){
                     		pwd();
 
-                    		withAWS(region:'us-west-2', credentials:'AKIAWDLEXRQOZ5SYKGFB') {
+                    		withAWS(credentials:'aws-static') {
                         	s3Upload(file:'index.html', bucket:'sagar-udacity-project-3', path:'')
                     			}
                 		}
